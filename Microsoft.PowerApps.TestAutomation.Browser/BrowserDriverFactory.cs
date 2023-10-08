@@ -27,7 +27,8 @@ namespace Microsoft.PowerApps.TestAutomation.Browser
                 case BrowserType.Firefox:
                     var ffService = FirefoxDriverService.CreateDefaultService(options.DriversPath);
                     ffService.HideCommandPromptWindow = options.HideDiagnosticWindow;
-                    driver = new FirefoxDriver(ffService);
+                    //driver = new FirefoxDriver(ffService);
+                    driver = new FirefoxDriver(ffService, new FirefoxOptions(),TimeSpan.FromSeconds(180));
                     driver.Manage().Timeouts().ImplicitWait = new TimeSpan(0, 0, 5);
                     break;
                 case BrowserType.Edge:
